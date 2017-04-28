@@ -1,120 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PLC</title>
+    <title>titel</title>
 
     <style>
+  .hidden{
+    opacity: 0;
+  }
+    #image_bottom:not(.hidden){
+    animation: slide 2s ease 0s 1 alternate none running;
+    opacity:1;
+  }
 
-.dateCell{
-      margin-top    : 1px;
-      margin-bottom : 1px;
-      margin-left   : 2px;
-      margin-right   : 2px;
-      text-align    : center;
-      display       : inline-block;
-      width         : 90px;
-      height        : 60px;
-      border        : 1px solid;
-      animation: fadeIn 0.5s ease 0s 1 normal;
-}
-.dataNodes{
-  padding-top   : 10px;
-  padding-bottom: 5px;
-  font-size     : 16px;
-}
-.priceNodes{
-  padding-top   : 5px;
-  font-size     : 20px;
+  @keyframes slide {
+    from {
+      margin-left: 100%;
+    }
 
-}
-.weeklyRow{
-  margin: 1px;
-
-}
-.inputAirportCodeRow{
-    border        : 0.5px solid;
-    width: 330px;
-    height: 30px;
-    margin: 2px;
-
-}
-.inputAirportCodeNode{
-  display       : inline-table;
-}
-.inputAirportCode{
-  display       : inline-block;
-  width         : 30px;
-
-}
-.inputAirportCodeForm{
-    border-bottom-width: 0px;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    width: 270px;
-    height: 24px;
-
-}
-.suggestAirportCode{
-  margin-top    : 4px;
-  margin-bottom : 4px;
-  margin-left   : 30px;
-  margin-right   : 2px;
-  border        : 0.5px solid;
-  width: 300px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
-.unvalid_airport{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 680px;
-  height: 600px;
-  transition: all 2s ease-in-out;
-
-
-
-}
-.valid_airport{
-
-  transition: all 2s ease-in-out;
-
-}
-.maincontent{
-    width: 100%;
-    margin: 0 auto;
-}
-.fare_list_unit{
-  display: inline-block;
-
-
-}
-.fare_list{
-
-  width: 700px;
-}
-@keyframes fadeIn {
-    0% {opacity: 0;transform: rotate(180 deg);}
-    100% {opacity: 1;transform: rotate(360deg);}
-}
-
-html, body, main, .maincontent, #content, .reactRoot {
-    height: 100%;           /* 1 */
-}
-
-
+    to {
+      margin-left: 0%;
+    }
+  }
     </style>
-	<meta name='B-verify' content='59853270a6580ec5ecde0e1449373192fd962c95' />
   </head>
 
   <body>
     <div id="content"></div>
 <script src="./build/jquery-3.1.1.min.js"></script>
     <script src="./build/app.js" charset="UTF-8"></script>
-	<p>[NOTICE] We are challenging to renew this site then passed one. Thus, we may stop this service without any announcement. 59853270a6580ec5ecde0e1449373192fd962c95 </p>
   </body>
 </html>
