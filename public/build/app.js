@@ -20804,24 +20804,24 @@ var Cells = React.createClass({displayName: "Cells",
         callback({image_src_bottom:canvas.toDataURL()});
         URL.revokeObjectURL(oURL);
       };
-
-      //oURL  = URL.createObjectURL(bottom_ctx)
-
-
-      //callback(oURL);
     };
     xhr.send();
   },
   moveBackImage(){
+    this.setState({is_changed:true})
+    this.loadsImageFromServer(this.state.current_index,(e)=>{this.setState(e)});
+    if(this.state.current_index>2){
+	     this.setState({current_index:this.state.current_index -1})
+    }
 
   },
   moveNextImage(){
     this.setState({is_changed:true})
-
     this.loadsImageFromServer(this.state.current_index,(e)=>{this.setState(e)});
-    this.setState({current_index:this.state.current_index +1})
-
-  },
+    if(this.state.current_index<8){
+	     this.setState({current_index:this.state.current_index +1})
+    }
+},
   componentDidUpdate(prevProps, prevState){
     if(prevState.is_changed){
       this.setState({is_changed:false})
@@ -20831,7 +20831,8 @@ var Cells = React.createClass({displayName: "Cells",
 
     return (
       React.createElement("div", null, 
-          React.createElement("div", {onClick: this.moveNextImage}, "load"), 
+          React.createElement("div", {onClick: this.moveBackImage}, "Back"), 
+          React.createElement("div", {onClick: this.moveNextImage}, "Next"), 
           React.createElement("img", {id: "image_top", src: this.state.image_src_top, style: {"z-index": 0,"position": "fixed"}}), 
           React.createElement("img", {id: "image_bottom", src: this.state.image_src_bottom, className: this.state.is_changed?"hidden":"", style: {"z-index": 1,"position": "fixed"}})
       )
