@@ -36,13 +36,18 @@ var Cells = React.createClass({
     xhr.send();
   },
   moveBackImage(){
+    if(this.state.current_index>0){
+	
+    }
 
   },
   moveNextImage(){
     this.setState({is_changed:true})
     this.loadsImageFromServer(this.state.current_index,(e)=>{this.setState(e)});
-    this.setState({current_index:this.state.current_index +1})
-  },
+    if(this.state.current_index<9){
+	this.setState({current_index:this.state.current_index +1})
+    }
+},
   componentDidUpdate(prevProps, prevState){
     if(prevState.is_changed){
       this.setState({is_changed:false})
