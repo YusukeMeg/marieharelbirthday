@@ -59,8 +59,8 @@ var Cells = React.createClass({
 
     return (
       <div>
-          <div onClick={this.moveBackImage}>Back</div>
-          <div onClick={this.moveNextImage}>Next</div>
+          <div onClick={this.moveBackImage}>戻る</div>
+          <div onClick={this.moveNextImage}>次</div>
           <img id="image_top" src={this.state.image_src_top}    style={{"z-index": 0,"position": "fixed"}}/>
           <img id="image_bottom"  src={this.state.image_src_bottom} className={this.state.is_changed?"hidden":""} style={{"z-index": 1,"position": "fixed"}}/>
       </div>
