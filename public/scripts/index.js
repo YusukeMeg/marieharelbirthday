@@ -36,16 +36,18 @@ var Cells = React.createClass({
     xhr.send();
   },
   moveBackImage(){
-    if(this.state.current_index>0){
-	
+    this.setState({is_changed:true})
+    this.loadsImageFromServer(this.state.current_index,(e)=>{this.setState(e)});
+    if(this.state.current_index>2){
+	     this.setState({current_index:this.state.current_index -1})
     }
 
   },
   moveNextImage(){
     this.setState({is_changed:true})
     this.loadsImageFromServer(this.state.current_index,(e)=>{this.setState(e)});
-    if(this.state.current_index<9){
-	this.setState({current_index:this.state.current_index +1})
+    if(this.state.current_index<8){
+	     this.setState({current_index:this.state.current_index +1})
     }
 },
   componentDidUpdate(prevProps, prevState){
@@ -57,7 +59,8 @@ var Cells = React.createClass({
 
     return (
       <div>
-          <div onClick={this.moveNextImage}>load</div>
+          <div onClick={this.moveBackImage}>Back</div>
+          <div onClick={this.moveNextImage}>Next</div>
           <img id="image_top" src={this.state.image_src_top}    style={{"z-index": 0,"position": "fixed"}}/>
           <img id="image_bottom"  src={this.state.image_src_bottom} className={this.state.is_changed?"hidden":""} style={{"z-index": 1,"position": "fixed"}}/>
       </div>
